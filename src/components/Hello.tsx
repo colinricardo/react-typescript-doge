@@ -7,6 +7,13 @@ interface ButtonProps {
   pos?: boolean;
 }
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+`;
+
 const Button = styled.div<ButtonProps>`
   font-size: 14px;
   color: white;
@@ -69,7 +76,7 @@ class Hello extends React.Component<Props, State> {
     const { onIncrement, onDecrement } = this.props;
 
     return (
-      <React.Fragment>
+      <Container>
         {this.renderMessage()}
         <Button pos onClick={onIncrement}>
           much wow
@@ -80,7 +87,7 @@ class Hello extends React.Component<Props, State> {
         </Button>
         <div style={{ paddingTop: 20 }} />
         <Button onClick={this.go}>doge</Button>
-      </React.Fragment>
+      </Container>
     );
   }
 }
