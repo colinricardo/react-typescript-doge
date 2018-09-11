@@ -21,6 +21,12 @@ const FadeInFromLeft = posed.div({
   exit: { x: -50, opacity: 0 },
 });
 
+const ScaleOnHover = posed.div({
+  hoverable: true,
+  init: { scale: 1 },
+  hover: { scale: 1.1 },
+});
+
 interface Props {
   history: Array<string>;
 }
@@ -36,13 +42,15 @@ const Doge = ({ history }: Props) => {
         <h1>such transition</h1>
       </FadeInFromLeft>
       <FadeInFromRight>
-        <img
-          src={doge}
-          height={100}
-          width={100}
-          style={{ cursor: 'pointer' }}
-          onClick={goHome}
-        />
+        <ScaleOnHover>
+          <img
+            src={doge}
+            height={100}
+            width={100}
+            style={{ cursor: 'pointer' }}
+            onClick={goHome}
+          />
+        </ScaleOnHover>
       </FadeInFromRight>
     </Container>
   );
